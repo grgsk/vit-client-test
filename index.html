@@ -3,17 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>VIT Client</title>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/js/bootstrap.js" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/index.css" />
 
 
   </head>
   <body>
-    <video id="video"></video>
-    <button id="rec" onclick="onBtnRecordClicked()">Record</button>
-    <button id="pauseRes"   onclick="onPauseResumeClicked()" disabled>Pause</button>
-    <button id="stop"  onclick="onBtnStopClicked()" disabled>Stop</button>
-    <a href="#" id="downloadLink"></a>
+    <div class="video">
+      <video id="video"></video>
+    </div>
+    <div class="controllers">
+      <button id="rec" onclick="onBtnRecordClicked()">Record</button>
+      <button id="pauseRes"   onclick="onPauseResumeClicked()" disabled>Pause</button>
+      <button id="stop"  onclick="onBtnStopClicked()" disabled>Stop</button>
+      <br/>
+      <a href="#" id="downloadLink"></a>
+    </div>
     <p id="data"></p>
 
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>

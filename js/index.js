@@ -20,6 +20,7 @@ var stopBtn = document.querySelector('button#stop');
 var videoElement = document.querySelector('video');
 var dataElement = document.querySelector('#data');
 var downloadLink = document.querySelector('a#downloadLink');
+var record = false;
 
 videoElement.controls = false;
 
@@ -39,6 +40,7 @@ var count = 0;
 
 function startRecording(stream) {
 	log('Start recording...');
+	record = true;
 	if (typeof MediaRecorder.isTypeSupported == 'function'){
 		/*
 			MediaRecorder.isTypeSupported is a function announced in https://developers.google.com/web/updates/2016/01/mediarecorder and later introduced in the MediaRecorder API spec http://www.w3.org/TR/mediastream-recording/
@@ -70,8 +72,10 @@ function startRecording(stream) {
 		// console.log(e.data);
 		// console.log(e.data.type);
 		// console.log(e);
-		if(mediaRecorder.state !== 'paused'){
+		if(record && mediaRecorder.state !== 'paused'){ //mediaRecorder.state !== 'paused'
 			// console.log("more data");
+			console.log(e.data);
+			console.log(e.data.type);
 			chunks.push(e.data);
 		}
 	};
@@ -139,7 +143,6 @@ function onBtnRecordClicked (){
 function onBtnStopClicked(){
 	mediaRecorder.stop();
 	videoElement.controls = true;
-
 	recBtn.disabled = false;
 	pauseResBtn.disabled = true;
 	stopBtn.disabled = true;
@@ -149,12 +152,16 @@ function onPauseResumeClicked(){
 	if(pauseResBtn.textContent === "Pause"){
 		console.log("pause");
 		pauseResBtn.textContent = "Resume";
-		mediaRecorder.pause();
+		console.log( getBrowser() );
+		if( getBrowser() !== "Firefox" ) mediaRecorder.pause();
+		record = false;
 		stopBtn.disabled = true;
 	}else{
 		console.log("resume");
 		pauseResBtn.textContent = "Pause";
-		mediaRecorder.resume();
+		console.log( getBrowser() );
+		if( getBrowser() !== "Firefox" ) mediaRecorder.resume();
+		record = true;
 		stopBtn.disabled = false;
 	}
 	recBtn.disabled = true;

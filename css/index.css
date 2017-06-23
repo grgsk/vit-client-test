@@ -7,3 +7,9 @@ video {
 #data {
   display: none;
 }
+button:disabled{
+  color: graytext;
+}
+.video, .controllers {
+  text-align: center;
+}
