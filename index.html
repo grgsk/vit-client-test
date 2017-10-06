@@ -2,27 +2,39 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>VIT Client</title>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/index.css" />
-
-
+    <title>Test page</title>
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
   </head>
   <body>
-    <div class="video">
-      <video id="video"></video>
+    <div class="col-sm-8">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Question 1</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Answer to question 1">
+          <small id="emailHelp" class="form-text text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Question 2</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Answer to question 2">
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">Video question </label>
+          <input type="text" class="form-control" id="vit-input" placeholder='"Hidden" input. Video url after upload will appear here.' value="">
+        </div>
+        <a type="submit" class="btn btn-primary">Submit</a>
     </div>
-    <div class="controllers">
-      <button id="rec" onclick="onBtnRecordClicked()">Record</button>
-      <button id="pauseRes"   onclick="onPauseResumeClicked()" disabled>Pause</button>
-      <button id="stop"  onclick="onBtnStopClicked()" disabled>Stop</button>
-      <br/>
-      <a href="#" id="downloadLink"></a>
-    </div>
-    <p id="data"></p>
 
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <!-- <div class="replace-with-vit-recorder">
+
+    </div> -->
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+    <script>
+      const RecordingAppConfig = { "client": "Career China" };
+      Object.freeze(RecordingAppConfig);
+    </script>
+    <script src="https://vit.skooli.me/vit-script.js"></script>
   </body>
 </html>
